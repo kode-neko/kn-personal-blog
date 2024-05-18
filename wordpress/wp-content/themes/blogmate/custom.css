@@ -1,11 +1,13 @@
+/* ROOT */
+
 :root {
   --back: #0f081f;
   --light: #f4ecfb;
   --pink: #7e108f;
   --blue: #2094ff;
-
-  /*font-size: 16px;*/
 }
+
+/* BODY */
 
 html body {
   background-color: var(--back);
@@ -18,9 +20,30 @@ html body {
   );
 }
 
+/* HEADER */
+
 #bloglo-header #bloglo-header-inner {
   background: rgba(0, 0, 0, 0);
 }
+
+.bloglo-header-element .logo-inner .site-title a {
+  color: var(--light);
+}
+
+.bloglo-header-element .logo-inner .site-title a:hover {
+  color: var(--pink);
+}
+
+body .bloglo-btn:not(.btn-text-1),
+.entry-footer .bloglo-btn.btn-text-1,
+.btn-small.bloglo-btn {
+  background-color: var(--pink) !important;
+  color: var(--light) !important;
+  box-shadow: none !important;
+  border: none;
+}
+
+/* CIRCLE BACKGROUND */
 
 .circle-back {
   z-index: -1;

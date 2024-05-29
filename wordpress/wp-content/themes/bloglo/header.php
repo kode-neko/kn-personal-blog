@@ -23,7 +23,6 @@
 <?php wp_body_open(); ?>
 
 <?php do_action( 'bloglo_before_page_wrapper' ); ?>
-<div class="circle-back"></div>
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Skip to content', 'bloglo' ); ?></a>
 

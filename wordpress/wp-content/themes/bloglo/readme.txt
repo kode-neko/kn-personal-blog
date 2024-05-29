@@ -6,7 +6,7 @@ Tested up to: 6.5
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Stable tag: 1.1.5
+Stable tag: 1.1.6
 
 A lightweight and highly customizable multi-purpose theme that makes it easy for anyone to create their perfect website.
 
@@ -28,8 +28,12 @@ Bloglo WordPress Theme, Copyright (c) 2023, Peregrinethemes
 Bloglo is distributed under the terms of the GNU GPLs
 
 == Changelog ==
+
+= 1.1.6 =
+* Added WeChat, QQ, Bilibili and Threads social icons.
+
 = 1.1.5 =
-* Telegram and Discord social icons added in header social menu.
+* Added Telegram and Discord social icons.
 
 = 1.1.4 =
 * Data escaping issue fixed.

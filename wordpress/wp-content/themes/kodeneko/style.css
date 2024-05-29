@@ -1,0 +1,54 @@
+/**
+ * Theme Name: Kodeneko
+ * Template:   bloglo
+ */
+/* ROOT */
+
+:root {
+  --back: #0f081f;
+  --light: #f4ecfb;
+  --pink: #7e108f;
+  --blue: #2094ff;
+  --light-trans: rgba(255, 255, 255, 0.04);
+  --transparent: rgba(0, 0, 0, 0);
+}
+
+#bloglo-header #bloglo-header-inner {
+  background-color: var(--transparent);
+}
+
+.bloglo-header-layout-4 .bloglo-header-container .bloglo-nav-container {
+  background: var(--transparent);
+  border: none;
+}
+
+#bloglo-header #bloglo-header-inner {
+  border-width: 0;
+}
+
+.circle-back {
+  z-index: -1;
+  opacity: 20%;
+  position: absolute;
+  top: -12rem;
+  left: -12rem;
+  width: 48rem;
+  height: 48rem;
+  border: 1rem dashed #7e108f;
+  border-radius: 50%;
+
+  /* Animation */
+  animation-name: spinningItself;
+  animation-duration: 120s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spinningItself {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

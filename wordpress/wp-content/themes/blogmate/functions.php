@@ -60,7 +60,6 @@ final class Blogmate {
 	function blogmate_styles() {
 		wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css', array(), time() );
 		wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array( 'parent-style' ), time() );
-		wp_enqueue_style( 'custom-style', get_stylesheet_directory_uri() . '/custom.css', array( 'parent-style', 'child-style' ), time() );
 	}
 }
 

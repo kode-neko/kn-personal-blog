@@ -2,6 +2,9 @@
  * Theme Name: Kodeneko
  * Template:   bloglo
  */
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 /* ROOT */
 
 :root {
@@ -13,16 +16,28 @@
   --transparent: rgba(0, 0, 0, 0);
 }
 
-body {
-  background-image: radial-gradient(
-    circle farthest-corner at 10% 10%,
-    rgba(157, 11, 160, 0.3) 0%,
-    rgba(0, 0, 0, 0) 30%
-  );
-}
-
 body.customize-support {
   background-color: var(--back);
+  font-family: "Roboto", sans-serif;
+  color: var(--light);
+  background-image: radial-gradient(
+      circle farthest-corner at 10% 10%,
+      rgba(157, 11, 160, 0.3) 0%,
+      rgba(0, 0, 0, 0) 30%
+    ),
+    radial-gradient(
+      circle farthest-corner at 100% 100%,
+      rgba(157, 11, 160, 0.3) 0%,
+      rgba(0, 0, 0, 0) 30%
+    );
+  background-attachment: fixed;
+}
+
+/* HEADER */
+
+.bloglo-logo .site-title a {
+  color: var(--light);
+  font-size: 6rem;
 }
 
 #bloglo-header #bloglo-header-inner {
@@ -38,15 +53,37 @@ body.customize-support {
   border-width: 0;
 }
 
+/* POST GALLERY */
+
+.bloglo-layout__boxed-separated.blog article.bloglo-article {
+  border-radius: 1.25rem;
+  background-color: var(--light-trans);
+}
+
+#main .entry-header h4.entry-title a {
+  color: var(--light);
+  font-weight: bold;
+}
+
+article .entry-meta {
+  color: var(--blue);
+}
+
+article .entry-meta .entry-meta-elements > span:before {
+  background-color: var(--blue);
+}
+
+/* CIRCLE */
+
 .circle-back {
   z-index: -1;
   opacity: 20%;
   position: absolute;
-  top: -12rem;
-  left: -12rem;
-  width: 48rem;
-  height: 48rem;
-  border: 1rem dashed #7e108f;
+  top: -28rem;
+  left: -21rem;
+  width: 60rem;
+  height: 60rem;
+  border: 1.8rem dashed #7e108f;
   border-radius: 50%;
 
   /* Animation */

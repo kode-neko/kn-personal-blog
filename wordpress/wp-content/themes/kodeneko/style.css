@@ -13,6 +13,10 @@
   --transparent: rgba(0, 0, 0, 0);
 }
 
+body.customize-support {
+  background-color: var(--back);
+}
+
 #bloglo-header #bloglo-header-inner {
   background-color: var(--transparent);
 }

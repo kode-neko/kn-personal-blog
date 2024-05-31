@@ -14,6 +14,8 @@
   --blue: #2094ff;
   --light-trans: rgba(255, 255, 255, 0.04);
   --transparent: rgba(0, 0, 0, 0);
+  --radius: 1.25rem;
+  --radius-sm: 0.63rem;
 }
 
 body.customize-support {
@@ -34,6 +36,10 @@ body.customize-support {
 }
 
 /* HEADER */
+
+nav.site-navigation {
+  display: none;
+}
 
 .bloglo-logo .site-title a {
   color: var(--light);
@@ -56,8 +62,16 @@ body.customize-support {
 /* POST GALLERY */
 
 .bloglo-layout__boxed-separated.blog article.bloglo-article {
-  border-radius: 1.25rem;
-  background-color: var(--light-trans);
+  border-radius: var(--radius);
+  background-color: var(--transparent);
+}
+
+body.bloglo-layout-shadow.bloglo-layout__boxed-separated.blog
+  article.bloglo-article,
+body.bloglo-layout-shadow.bloglo-layout__boxed-separated.blog
+  article.bloglo-article {
+  border-color: var(--light-trans);
+  border-width: 0.28rem;
 }
 
 #main .entry-header h4.entry-title a {
@@ -66,11 +80,127 @@ body.customize-support {
 }
 
 article .entry-meta {
-  color: var(--blue);
+  color: var(--pink);
+  font-weight: bold;
+  font-size: 1.3rem;
 }
 
 article .entry-meta .entry-meta-elements > span:before {
-  background-color: var(--blue);
+  background-color: var(--pink);
+}
+
+/* SEARCH */
+
+form.wp-block-search {
+  width: 100%;
+}
+
+.wp-block-search button.wp-block-search__button {
+  border-radius: var(--radius-sm);
+  background-color: var(--pink);
+  border: none;
+}
+
+input[type="search"].wp-block-search__input {
+  background-color: var(--transparent);
+  border: none;
+  border-bottom: 0.13rem solid var(--pink);
+}
+
+a.bloglo-btn {
+  border-radius: var(--radius-sm);
+  border: none;
+  background-color: var(--pink);
+}
+
+/* TAGCLOUD */
+
+.widget.bloglo-entry p.wp-block-tag-cloud {
+  margin-top: 0;
+}
+
+.tagcloud a,
+.wp-block-tag-cloud a.tag-cloud-link {
+  border-radius: var(--radius-sm);
+  border: none;
+  background-color: var(--pink);
+}
+
+/* WIDGET CONTAIENR */
+
+.bloglo-layout__boxed-separated.bloglo-sidebar-style-3
+  #secondary
+  div.bloglo-widget {
+  background: var(--light-trans);
+  border-radius: var(--radius);
+}
+
+h2.wp-block-heading {
+  color: var(--blue);
+}
+
+.bloglo-sidebar-style-3.is-section-heading-init-s1
+  #secondary
+  h2.wp-block-heading {
+  border-bottom: 0.1rem solid var(--light-trans);
+}
+
+.bloglo-sidebar-style-3.is-section-heading-init-s1
+  #secondary
+  h2.wp-block-heading::before,
+.bloglo-sidebar-style-3.is-section-heading-init-s1
+  #secondary
+  h2.wp-block-heading::after {
+  width: 0;
+}
+
+.bloglo-sidebar-container
+  .widget
+  ul.wp-block-latest-posts__list.wp-block-latest-posts:not(.bloglo-socials-menu)
+  > li:not(:first-child) {
+  border-top: 0.1rem solid var(--light-trans);
+}
+
+/* NAVIGATION */
+
+.navigation .nav-links a.page-numbers:not(.prev, .next),
+.navigation .nav-links a.page-numbers,
+.navigation .nav-links button.bloglo-animate-arrow,
+.navigation .nav-links a.page-numbers:not(.prev, .next).current,
+.navigation .nav-links span.page-numbers:not(.prev, .next).current,
+.navigation .nav-links a.page-numbers:not(.prev, .next):hover,
+.navigation .nav-links a.page-numbers:hover button {
+  background-color: var(--pink);
+  border: none;
+}
+
+.navigation .nav-links a.page-numbers:not(.prev, .next),
+.navigation .nav-links a.page-numbers,
+.navigation .nav-links button.bloglo-animate-arrow {
+  color: var(--back);
+}
+
+/* BTN SCROLL TOP */
+
+a#bloglo-scroll-top:before,
+a:hover#bloglo-scroll-top:before {
+  background-color: var(--pink);
+  border: none;
+  color: var(--light);
+}
+
+a#bloglo-scroll-top:hover svg {
+  fill: var(--light);
+}
+
+footer#colophon,
+div#bloglo-copyright {
+  background-color: var(--transparent);
+  background: var(--transparent);
+}
+
+div#bloglo-cursor-dot {
+  display: none;
 }
 
 /* CIRCLE */

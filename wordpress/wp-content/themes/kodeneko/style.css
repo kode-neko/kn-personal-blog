@@ -82,10 +82,24 @@ body.bloglo-layout-shadow.bloglo-layout__boxed-separated.blog
 article .entry-meta {
   color: var(--pink);
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+}
+
+#main article .entry-meta a:hover {
+  color: var(--pink);
 }
 
 article .entry-meta .entry-meta-elements > span:before {
+  background-color: var(--pink);
+}
+
+a.bloglo-btn.btn-text-1,
+a.bloglo-btn.btn-text-1:hover {
+  font-weight: 600;
+  color: var(--pink);
+}
+
+a.bloglo-btn.btn-text-1 > span::before {
   background-color: var(--pink);
 }
 
@@ -124,6 +138,18 @@ a.bloglo-btn {
   border-radius: var(--radius-sm);
   border: none;
   background-color: var(--pink);
+}
+
+p.wp-block-tag-cloud a {
+  display: inline-block;
+  transition: all 0.3s;
+  font-size: 1.6rem !important;
+}
+
+p.wp-block-tag-cloud a:hover {
+  background-color: var(--pink);
+  font-weight: bold;
+  transform: scale(1.1);
 }
 
 /* WIDGET CONTAIENR */
@@ -193,6 +219,8 @@ a#bloglo-scroll-top:hover svg {
   fill: var(--light);
 }
 
+/* FOOTER */
+
 footer#colophon,
 div#bloglo-copyright {
   background-color: var(--transparent);
@@ -201,6 +229,25 @@ div#bloglo-copyright {
 
 div#bloglo-cursor-dot {
   display: none;
+}
+
+footer#colophon a:not(.bloglo-btn):hover {
+  color: var(--pink);
+}
+
+footer#colophon #bloglo-copyright .bloglo-copyright-widget__text a:before {
+  background: var(--pink);
+}
+
+/* LINKS */
+
+#secondary li a:not(.bloglo-btn):hover,
+.bloglo-logo h1.site-title a:hover {
+  color: var(--pink);
+}
+
+#main .entry-header h4.entry-title a:hover {
+  color: var(--blue);
 }
 
 /* CIRCLE */

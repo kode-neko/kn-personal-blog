@@ -76,6 +76,9 @@ body.bloglo-layout-shadow.bloglo-layout__boxed-separated.blog
 body.bloglo-layout-shadow.bloglo-layout__boxed-separated.blog
   article.bloglo-article,
 body.bloglo-layout-shadow.bloglo-layout__boxed-separated.archive
+  article.bloglo-article,
+.bloglo-layout__boxed-separated.search-results article.bloglo-article,
+body.bloglo-layout-shadow.bloglo-layout__boxed-separated.search-results
   article.bloglo-article {
   background-color: var(--transparent);
   border-radius: var(--radius);
@@ -480,6 +483,7 @@ p.comment-textarea .textarea-comment::placeholder {
 
 /* ARCHIVE */
 
+.search .page-header h1.page-title,
 .archive .page-header h1.page-title {
   background-color: var(--pink);
   padding: 0.63rem 2.2rem;

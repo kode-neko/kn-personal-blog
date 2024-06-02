@@ -71,15 +71,14 @@ nav.site-navigation {
 
 /* POST GALLERY */
 
-.bloglo-layout__boxed-separated.blog article.bloglo-article {
-  border-radius: var(--radius);
-  background-color: var(--transparent);
-}
-
 body.bloglo-layout-shadow.bloglo-layout__boxed-separated.blog
   article.bloglo-article,
 body.bloglo-layout-shadow.bloglo-layout__boxed-separated.blog
+  article.bloglo-article,
+body.bloglo-layout-shadow.bloglo-layout__boxed-separated.archive
   article.bloglo-article {
+  background-color: var(--transparent);
+  border-radius: var(--radius);
   border-color: var(--light-trans);
   border-width: 0.28rem;
 }
@@ -477,6 +476,14 @@ p.comment-textarea .textarea-comment::placeholder {
 .bloglo-layout-shadow #comments article.comment-body {
   border: none;
   border-bottom: 0.05rem solid var(--pink);
+}
+
+/* ARCHIVE */
+
+.archive .page-header h1.page-title {
+  background-color: var(--pink);
+  padding: 0.63rem 2.2rem;
+  border-radius: var(--radius-sm);
 }
 
 /* CIRCLE */

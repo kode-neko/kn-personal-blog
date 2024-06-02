@@ -486,6 +486,17 @@ p.comment-textarea .textarea-comment::placeholder {
   border-radius: var(--radius-sm);
 }
 
+/* AUTHOR */
+
+.bloglo-layout__boxed-separated.author section.author-box {
+  background: var(--light-trans);
+  border-radius: var(--radius);
+}
+
+.author-box-meta .h4.author-box-title {
+  color: var(--light);
+}
+
 /* CIRCLE */
 
 .circle-back {

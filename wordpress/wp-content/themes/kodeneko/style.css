@@ -287,7 +287,7 @@ footer#colophon #bloglo-copyright .bloglo-copyright-widget__text a:before {
 /* LINKS */
 
 #secondary li a:not(.bloglo-btn):hover,
-.bloglo-logo h1.site-title a:hover {
+div.bloglo-logo .site-title a:hover {
   color: var(--pink);
 }
 

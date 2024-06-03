@@ -127,16 +127,49 @@ form.wp-block-search {
   border: none;
 }
 
-input[type="search"].wp-block-search__input {
+input[type="search"].wp-block-search__input,
+input[type="search"].wp-block-search__input:focus,
+#content form.search-form input[type="search"].search-field {
+  color: var(--light);
   background-color: var(--transparent);
   border: none;
-  border-bottom: 0.13rem solid var(--pink);
+  outline: none;
+  border-bottom: 0.4rem solid var(--pink);
+  border-radius: 0;
 }
 
-a.bloglo-btn {
+input[type="search"].wp-block-search__input::placeholder,
+#content form.search-form input[type="search"].search-field::placeholder {
+  color: var(--pink);
+  font-style: italic;
+  font-weight: 600;
+}
+
+input[type="search"].wp-block-search__input::-webkit-search-cancel-button,
+#content
+  form.search-form
+  input[type="search"].search-field::-webkit-search-cancel-button {
+  position: relative;
+  left: 100px;
+}
+
+form.wp-block-search button.wp-block-search__button,
+#content form.search-form button.search-submit {
   border-radius: var(--radius-sm);
   border: none;
   background-color: var(--pink);
+  transition: all 0.3s;
+}
+
+#content form.search-form button.search-submit {
+}
+
+form.wp-block-search button.wp-block-search__button:hover {
+  background-color: var(--blue);
+}
+
+section.no-results.not-found form.search-form {
+  display: none;
 }
 
 /* TAG CLOUD */

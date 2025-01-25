@@ -116,8 +116,7 @@
     -webkit-transition: -webkit-transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: -webkit-transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1),
-        -webkit-transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
     will-change: scale;
 }
 
@@ -981,7 +980,7 @@ p:empty {
 }
 
 p a,
-.content-area a:not(.bloglo-btn, .wp-block-button__link, .page-numbers):hover,
+.content-area a:not(.bloglo-btn, .wp-block-button__link, .page-numbers, [class^=cat-]):hover,
 .content-area .bloglo-entry a,
 .wp-block-archives a:hover,
 .wp-block-categories a:hover,
@@ -1285,15 +1284,15 @@ blockquote cite {
     text-align: center;
 }
 
-.bloglo-entry .wp-block-quote[style*="text-align:right"],
-.bloglo-entry .wp-block-quote[style*="text-align: right"] {
+.bloglo-entry .wp-block-quote[style*='text-align:right'],
+.bloglo-entry .wp-block-quote[style*='text-align: right'] {
     border-left: none;
     border-right-style: solid;
     padding: 0.6rem 4rem 0.6rem 0;
 }
 
-.bloglo-entry .wp-block-quote[style*="text-align:right"] cite,
-.bloglo-entry .wp-block-quote[style*="text-align: right"] cite {
+.bloglo-entry .wp-block-quote[style*='text-align:right'] cite,
+.bloglo-entry .wp-block-quote[style*='text-align: right'] cite {
     text-align: right;
 }
 
@@ -1446,7 +1445,7 @@ body:not(.elementor-page) #page .wp-caption .wp-caption-text {
     text-align: center;
     font-size: 1.4rem;
     line-height: 1.5;
-    margin-top: .7rem;
+    margin-top: 0.7rem;
     margin-bottom: 1.4rem;
 }*/
 
@@ -1456,7 +1455,7 @@ body:not(.elementor-page) #page .wp-caption .wp-caption-text {
     flex: 1;
     width: 100%;
     max-width: 100%;
-    /*padding: 0 .4rem .8rem;*/
+    /*padding: 0 0.4rem 0.8rem;*/
     margin: 0 !important;
 }
 
@@ -1689,6 +1688,7 @@ textarea {
 }
 
 @media only screen and (min-width: 961px) {
+
     .bloglo-layout__boxed-separated #primary,
     .bloglo-layout__boxed-separated #secondary {
         margin-top: 5rem;
@@ -1789,10 +1789,7 @@ textarea {
 .bloglo-layout-shadow #comments .comment_container,
 .bloglo-layout-shadow .author-box,
 .bloglo-layout-shadow.bloglo-layout__boxed #page,
-.bloglo-layout-shadow.bloglo-layout__boxed-separated:not(.archive,
-    .blog,
-    .category,
-    .search-results) #content,
+.bloglo-layout-shadow.bloglo-layout__boxed-separated:not(.archive, .blog, .category, .search-results) #content,
 .bloglo-layout-shadow.bloglo-layout__boxed-separated.author .author-box,
 .bloglo-layout-shadow.bloglo-layout__boxed-separated.blog .bloglo-article,
 .bloglo-layout-shadow.bloglo-layout__boxed-separated.category .bloglo-article,
@@ -2177,6 +2174,11 @@ textarea {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
+}
+
+.site .bloglo-flex-row>div:not(.col-xs-12),
+.site .bloglo-flex-row>iframe {
+    width: 100%;
 }
 
 /*****************************************/
@@ -2700,15 +2702,10 @@ button.bloglo-btn:disabled {
 
 .btn-left-icon.btn-reveal>svg,
 .btn-right-icon.btn-reveal>svg {
-    -webkit-transition: opacity 0.1s ease,
-        -webkit-transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: opacity 0.1s ease,
-        -webkit-transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1),
-        opacity 0.1s ease;
-    transition: transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1),
-        opacity 0.1s ease,
-        -webkit-transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -webkit-transition: opacity 0.1s ease, -webkit-transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: opacity 0.1s ease, -webkit-transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.1s ease;
+    transition: transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.1s ease, -webkit-transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
     opacity: 0;
     position: absolute;
     top: 50%;
@@ -2718,10 +2715,8 @@ button.bloglo-btn:disabled {
 
 .btn-left-icon.btn-reveal>span,
 .btn-right-icon.btn-reveal>span {
-    -webkit-transition: padding 0.35s cubic-bezier(0.645, 0.045, 0.355, 1),
-        margin 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: padding 0.35s cubic-bezier(0.645, 0.045, 0.355, 1),
-        margin 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -webkit-transition: padding 0.35s cubic-bezier(0.645, 0.045, 0.355, 1), margin 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: padding 0.35s cubic-bezier(0.645, 0.045, 0.355, 1), margin 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     -webkit-backface-visibility: hidden;
@@ -2886,8 +2881,7 @@ button.bloglo-btn:disabled {
     -webkit-transition: -webkit-transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: -webkit-transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1),
-        -webkit-transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1), -webkit-transform 0.35s cubic-bezier(0.645, 0.045, 0.355, 1);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     will-change: scale;
@@ -2916,18 +2910,17 @@ button.bloglo-btn:disabled {
 #add_payment_method table.cart td.actions .coupon .input-text,
 .woocommerce-cart table.cart td.actions .coupon .input-text,
 .woocommerce-checkout table.cart td.actions .coupon .input-text,
-input[type="date"],
-input[type="email"],
-input[type="password"],
-input[type="search"],
-input[type="tel"],
-input[type="text"],
-input[type="url"],
+input[type=date],
+input[type=email],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=url],
 textarea {
     font-size: inherit;
     font-weight: 400;
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     border: 0.2rem solid rgba(190, 190, 190, 0.3);
     background-color: var(--bloglo-white);
     padding: 0.9rem 1.6rem;
@@ -3434,7 +3427,7 @@ input:-webkit-autofill {
 }
 
 .bloglo-social-nav.minimal-fill>ul>li>a>span.youtube {
-    color: #ff0000;
+    color: #fb5555;
 }
 
 .bloglo-social-nav.minimal-fill>ul>li>a>span.flickr {
@@ -3455,6 +3448,22 @@ input:-webkit-autofill {
 
 .bloglo-social-nav.minimal-fill>ul>li>a>span.discord {
     color: #5865f2;
+}
+
+.bloglo-social-nav.minimal-fill>ul>li>a>span.wechat {
+    color: #09B83E;
+}
+
+.bloglo-social-nav.minimal-fill>ul>li>a>span.qq {
+    color: #09f;
+}
+
+.bloglo-social-nav.minimal-fill>ul>li>a>span.bilibili {
+    color: #06B6F2;
+}
+
+.bloglo-social-nav.minimal-fill>ul>li>a>span.threads {
+    color: #101010;
 }
 
 .bloglo-social-nav.minimal-fill>ul>li>a>span.rss {
@@ -3490,12 +3499,12 @@ input:-webkit-autofill {
 
 .bloglo-social-nav.rounded-fill>ul>li>a>span.github {
     background-color: #0d1117;
-    outline: 1px solid rgba(190, 190, 190, 0.30);
+    outline: 1px solid rgba(190, 190, 190, 0.3);
 }
 
 .bloglo-social-nav.rounded-fill>ul>li>a>span.twitter {
     background-color: #000000;
-    outline: 1px solid rgba(190, 190, 190, 0.30);
+    outline: 1px solid rgba(190, 190, 190, 0.3);
 }
 
 .bloglo-social-nav.rounded-fill>ul>li>a>span.instagram {
@@ -3515,7 +3524,7 @@ input:-webkit-autofill {
 }
 
 .bloglo-social-nav.rounded-fill>ul>li>a>span.youtube {
-    background-color: #ff0000;
+    background-color: #fb5555;
 }
 
 .bloglo-social-nav.rounded-fill>ul>li>a>span.flickr {
@@ -3538,12 +3547,30 @@ input:-webkit-autofill {
     background-color: #5865f2;
 }
 
+.bloglo-social-nav.rounded-fill>ul>li>a>span.wechat {
+    background-color: #09B83E;
+}
+
+.bloglo-social-nav.rounded-fill>ul>li>a>span.qq {
+    background-color: #09f;
+}
+
+.bloglo-social-nav.rounded-fill>ul>li>a>span.bilibili {
+    background-color: #06B6F2;
+}
+
+.bloglo-social-nav.rounded-fill>ul>li>a>span.threads {
+    background-color: #101010;
+    outline: 1px solid rgba(190, 190, 190, 0.3);
+}
+
 .bloglo-social-nav.rounded-fill>ul>li>a>span.rss {
     background-color: #f59f23;
 }
 
 .bloglo-social-nav.rounded-fill>ul>li>a>span.tiktok {
     background-color: #010101;
+    outline: 1px solid rgba(190, 190, 190, 0.3);
 }
 
 /*****************************************/
@@ -3767,8 +3794,7 @@ input:-webkit-autofill {
 }
 
 .bloglo-sticky-header.admin-bar.bloglo-is-mobile #bloglo-header-inner,
-.bloglo-sticky-header.admin-bar:not(.bloglo-header-layout-3,
-    .bloglo-header-layout-4) #bloglo-header-inner,
+.bloglo-sticky-header.admin-bar:not(.bloglo-header-layout-3, .bloglo-header-layout-4) #bloglo-header-inner,
 .bloglo-sticky-header.admin-bar:not(.bloglo-is-mobile).bloglo-header-layout-4 #bloglo-header-inner .bloglo-nav-container>.bloglo-container,
 .bloglo-sticky-header.admin-bar:not(.bloglo-is-mobile).bloglo-header-layout-3 #bloglo-header-inner .bloglo-nav-container>.bloglo-container {
     top: 32px;
@@ -3855,14 +3881,12 @@ html[data-theme="dark"] .bloglo-header-widgets .bloglo-header-widget .bloglo-dar
     pointer-events: auto;
 }
 
-.bloglo-header-widgets .bloglo-header-widget:not(.bloglo-header-widget__button,
-    .bloglo-header-widget__socials) .bloglo-icon {
+.bloglo-header-widgets .bloglo-header-widget:not(.bloglo-header-widget__button, .bloglo-header-widget__socials) .bloglo-icon {
     height: 2.057rem;
     width: auto;
 }
 
-.bloglo-header-widgets .bloglo-header-widget:not(.bloglo-header-widget__button,
-    .bloglo-header-widget__socials) .bloglo-icon path {
+.bloglo-header-widgets .bloglo-header-widget:not(.bloglo-header-widget__button, .bloglo-header-widget__socials) .bloglo-icon path {
     fill: currentColor;
     fill-rule: evenodd;
 }
@@ -3879,8 +3903,7 @@ body header.site-header div:not(.bloglo-header-widget__button) .bloglo-empty-car
 }
 
 .bloglo-header-widgets .bloglo-cart .bloglo-cart-count {
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     -webkit-box-sizing: content-box;
     box-sizing: content-box;
     font-size: 1.1rem;
@@ -4204,7 +4227,7 @@ body header.site-header div:not(.bloglo-header-widget__button) .bloglo-empty-car
 
 .bloglo-header-layout-4 .bloglo-widget-location-left .dropdown-item {
     right: auto;
-    left: -.7rem;
+    left: -0.7rem;
 }
 
 .bloglo-header-layout-4 .bloglo-widget-location-left .dropdown-item:after {
@@ -4260,7 +4283,7 @@ body header.site-header div:not(.bloglo-header-widget__button) .bloglo-empty-car
     position: relative;
     z-index: 3;
     border-width: 0;
-    margin-bottom: -.1rem;
+    margin-bottom: -0.1rem;
 }
 
 .bloglo-header-layout-4 .bloglo-nav-container .bloglo-header-element {
@@ -4631,22 +4654,8 @@ body:not(.bloglo-has-sidebar):not(.bloglo-single-title-in-content):not(.comments
     bottom: 0;
     left: 0;
     z-index: 2;
-    background: -webkit-gradient(linear,
-            left top,
-            left bottom,
-            from(rgba(255, 255, 255, 0)),
-            color-stop(1%, rgba(35, 40, 45, 0)),
-            color-stop(20%, rgba(35, 40, 45, 0.05)),
-            color-stop(40%, rgba(35, 40, 45, 0.15)),
-            color-stop(60%, rgba(35, 40, 45, 0.55)),
-            to(rgba(0, 0, 0, 0.65)));
-    background: linear-gradient(to bottom,
-            rgba(255, 255, 255, 0) 0%,
-            rgba(35, 40, 45, 0) 1%,
-            rgba(35, 40, 45, 0.05) 20%,
-            rgba(35, 40, 45, 0.15) 40%,
-            rgba(35, 40, 45, 0.55) 60%,
-            rgba(0, 0, 0, 0.65) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), color-stop(1%, rgba(35, 40, 45, 0)), color-stop(20%, rgba(35, 40, 45, 0.05)), color-stop(40%, rgba(35, 40, 45, 0.15)), color-stop(60%, rgba(35, 40, 45, 0.55)), to(rgba(0, 0, 0, 0.65)));
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(35, 40, 45, 0) 1%, rgba(35, 40, 45, 0.05) 20%, rgba(35, 40, 45, 0.15) 40%, rgba(35, 40, 45, 0.55) 60%, rgba(0, 0, 0, 0.65) 100%);
 }
 
 .bloglo-vertical-slider .bloglo-container,
@@ -5285,7 +5294,6 @@ body:not(.bloglo-has-sidebar):not(.bloglo-single-title-in-content):not(.comments
 }
 
 .wp-block-search .wp-block-search__label {
-    width: auto;
     margin-bottom: 1.2rem;
 }
 
@@ -5756,7 +5764,7 @@ body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .blog
 body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .bloglo-nav>ul>li.current-menu-item>a,
 body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .bloglo-nav>ul>li.current-menu-ancestor>a {
     background-color: var(--bloglo-primary);
-    color: var(--bloglo-white);
+    color: #fff;
 }
 
 /* Square Border */
@@ -5855,18 +5863,12 @@ body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .blog
 .is-section-heading-init-s1 .bloglo-featured-items .widget-title,
 .is-section-heading-init-s2:not(.bloglo-sidebar-style-1) .pyml-slider-items .widget-title,
 .is-section-heading-init-s1 .pyml-slider-items .widget-title,
-.bloglo-sidebar-style-3:not(.is-section-heading-init-s2,
-    .is-section-heading-init-s0) #secondary .wp-block-search .wp-block-search__label,
-.bloglo-sidebar-style-2:not(.is-section-heading-init-s2,
-    .is-section-heading-init-s0) #secondary .wp-block-search .wp-block-search__label,
-.bloglo-sidebar-style-3:not(.is-section-heading-init-s2,
-    .is-section-heading-init-s0) #secondary .wp-block-heading,
-.bloglo-sidebar-style-2:not(.is-section-heading-init-s2,
-    .is-section-heading-init-s0) #secondary .wp-block-heading,
-.bloglo-sidebar-style-3:not(.is-section-heading-init-s2,
-    .is-section-heading-init-s0) #secondary .widget-title,
-.bloglo-sidebar-style-2:not(.is-section-heading-init-s2,
-    .is-section-heading-init-s0) #secondary .widget-title {
+.bloglo-sidebar-style-3:not(.is-section-heading-init-s2, .is-section-heading-init-s0) #secondary .wp-block-search .wp-block-search__label,
+.bloglo-sidebar-style-2:not(.is-section-heading-init-s2, .is-section-heading-init-s0) #secondary .wp-block-search .wp-block-search__label,
+.bloglo-sidebar-style-3:not(.is-section-heading-init-s2, .is-section-heading-init-s0) #secondary .wp-block-heading,
+.bloglo-sidebar-style-2:not(.is-section-heading-init-s2, .is-section-heading-init-s0) #secondary .wp-block-heading,
+.bloglo-sidebar-style-3:not(.is-section-heading-init-s2, .is-section-heading-init-s0) #secondary .widget-title,
+.bloglo-sidebar-style-2:not(.is-section-heading-init-s2, .is-section-heading-init-s0) #secondary .widget-title {
     padding-bottom: 2rem;
     margin-bottom: 2.5rem;
 }
@@ -6026,9 +6028,9 @@ body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .blog
     margin-bottom: 5rem;
 }
 
-.bloglo-blog-masonry .bloglo-article .bloglo-blog-entry-content> :first-child,
-.bloglo-blog-horizontal .bloglo-article .bloglo-blog-entry-content> :first-child,
-.bloglo-blog-layout-1 .bloglo-article .bloglo-blog-entry-content> :first-child {
+.bloglo-blog-masonry .bloglo-article .bloglo-blog-entry-content>:first-child,
+.bloglo-blog-horizontal .bloglo-article .bloglo-blog-entry-content>:first-child,
+.bloglo-blog-layout-1 .bloglo-article .bloglo-blog-entry-content>:first-child {
     margin-top: 0 !important;
 }
 
@@ -6071,8 +6073,8 @@ body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .blog
     margin-left: 0;
     margin-right: 0;
     display: block;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+    -webkit-transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
 }
 
 .bloglo-blog-masonry .bloglo-article .entry-summary,
@@ -6168,7 +6170,7 @@ body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .blog
 }
 
 .bloglo-blog-horizontal .bloglo-article:not(.format-quote) .post-category .cat-links a:last-child:after {
-    content: '';
+    content: "";
 }*/
 
 .bloglo-blog-horizontal .bloglo-article:not(.format-quote) .entry-meta {
@@ -6589,15 +6591,10 @@ body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .blog
     opacity: 0;
     -webkit-transform: translate3d(0, 3rem, 0);
     transform: translate3d(0, 3rem, 0);
-    -webkit-transition: opacity 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
-        -webkit-transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-    transition: opacity 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
-        -webkit-transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
-        opacity 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
-        opacity 0.35s cubic-bezier(0.25, 0.8, 0.25, 1),
-        -webkit-transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    -webkit-transition: opacity 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), -webkit-transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: opacity 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), -webkit-transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.35s cubic-bezier(0.25, 0.8, 0.25, 1), -webkit-transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 #bloglo-scroll-top.bloglo-visible {
@@ -6772,11 +6769,8 @@ body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .blog
     width: 2rem;
     position: relative;
     vertical-align: middle;
-    -webkit-transition: color 0.35s ease-in-out,
-        background-color 0.35s ease-in-out, border-color 0.35s ease-in-out,
-        box-shadow 0.35s ease-in-out;
-    transition: color 0.35s ease-in-out, background-color 0.35s ease-in-out,
-        border-color 0.35s ease-in-out, box-shadow 0.35s ease-in-out;
+    -webkit-transition: color .35s ease-in-out, background-color .35s ease-in-out, border-color .35s ease-in-out, box-shadow .35s ease-in-out;
+    transition: color .35s ease-in-out, background-color .35s ease-in-out, border-color .35s ease-in-out, box-shadow .35s ease-in-out;
 }
 
 .navigation .nav-links .page-numbers.dots {
@@ -7058,9 +7052,7 @@ body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .blog
     z-index: 0;
 }
 
-.widget_block ul:not(.submenu-container,
-    .wp-block-social-links,
-    .wp-block-latest-posts__list)>li>a::before,
+.widget_block ul:not(.submenu-container, .wp-block-social-links, .wp-block-latest-posts__list)>li>a::before,
 .widget.widget_archive ul:not(.children)>li>a::before,
 .widget.widget_categories ul:not(.children)>li>a::before,
 .widget.widget.widget_pages ul:not(.sub-menu)>li>a::before,
@@ -7081,12 +7073,8 @@ body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .blog
     transition: var(--bloglo-transition-primary);
 }
 
-.widget.widget_block ul:not(.submenu-container,
-    .wp-block-social-links,
-    .wp-block-latest-posts__list)>li>a:hover::before,
-.using-keyboard .widget.widget_block ul:not(.submenu-container,
-    .wp-block-social-links,
-    .wp-block-latest-posts__list)>li>a:focus::before,
+.widget.widget_block ul:not(.submenu-container, .wp-block-social-links, .wp-block-latest-posts__list)>li>a:hover::before,
+.using-keyboard .widget.widget_block ul:not(.submenu-container, .wp-block-social-links, .wp-block-latest-posts__list)>li>a:focus::before,
 .widget.widget_archive ul:not(.children)>li>a:hover::before,
 .using-keyboard .widget.widget_archive ul:not(.children)>li>a:focus::before,
 .widget.widget_categories ul:not(.children)>li>a:hover::before,
@@ -7117,8 +7105,8 @@ body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .blog
     top: 1.15rem;
 }
 
-.bloglo-sidebar-container .widget ul> :not(.bloglo-socials-menu, .children, .submenu-container) li,
-.bloglo-sidebar-container .widget ul> :not(.bloglo-socials-menu, .sub-menu, .submenu-container) li {
+.bloglo-sidebar-container .widget ul>:not(.bloglo-socials-menu, .children, .submenu-container) li,
+.bloglo-sidebar-container .widget ul>:not(.bloglo-socials-menu, .sub-menu, .submenu-container) li {
     padding: 0;
     border: 0;
 }
@@ -7399,21 +7387,21 @@ body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .blog
 /* Entry styles.
 /*****************************************/
 /* Content links */
-.comment-content> :first-child,
-.bloglo-entry> :first-child,
-.wp-block-column> :first-child,
-.wp-block-cover> :first-child,
-.wp-block-cover__inner-container> :first-child,
-.wp-block-group__inner-container> :first-child {
+.comment-content>:first-child,
+.bloglo-entry>:first-child,
+.wp-block-column>:first-child,
+.wp-block-cover>:first-child,
+.wp-block-cover__inner-container>:first-child,
+.wp-block-group__inner-container>:first-child {
     margin-top: 0;
 }
 
-.comment-content> :last-child,
-.bloglo-entry> :last-child,
-.wp-block-column> :last-child,
-.wp-block-cover> :last-child,
-.wp-block-cover__inner-container> :last-child,
-.wp-block-group__inner-container> :last-child {
+.comment-content>:last-child,
+.bloglo-entry>:last-child,
+.wp-block-column>:last-child,
+.wp-block-cover>:last-child,
+.wp-block-cover__inner-container>:last-child,
+.wp-block-group__inner-container>:last-child {
     margin-bottom: 0;
 }
 
@@ -7422,8 +7410,8 @@ body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .blog
 }
 
 .bloglo-entry>.alignfull:last-child,
-.wp-block-cover__inner-container> :first-child:last-child,
-.wp-block-group__inner-container> :first-child:last-child {
+.wp-block-cover__inner-container>:first-child:last-child,
+.wp-block-group__inner-container>:first-child:last-child {
     margin-bottom: 0;
 }
 
@@ -7725,7 +7713,6 @@ body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .blog
     position: relative;
     display: block;
     overflow: hidden;
-    border-radius: var(--bloglo-normal-radius);
 }
 
 .entry-media>a .entry-media-icon {
@@ -7877,6 +7864,7 @@ body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .blog
 .entry-media img {
     margin: 0 auto;
     display: block;
+    border-radius: var(--bloglo-normal-radius);
 }
 
 .single-post .entry-media,
@@ -7940,10 +7928,6 @@ body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .blog
     margin-left: 0;
 }
 
-.single .post-category a:hover {
-    color: #fff !important;
-}
-
 .bloglo-hover-slider .entry-header,
 .single .entry-header {
     text-align: left;
@@ -7961,8 +7945,8 @@ body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .blog
     margin-bottom: 5rem;
 }
 
-.bloglo-hover-slider .entry-content> :last-child,
-.single .entry-content> :last-child {
+.bloglo-hover-slider .entry-content>:last-child,
+.single .entry-content>:last-child {
     margin-bottom: 0 !important;
 }
 
@@ -8157,7 +8141,7 @@ body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .blog
 }
 
 .single.bloglo-single-title-in-page-header #page .page-header .page-title {
-    color: var(--bloglo-white);
+    color: #fff;
     font-size: 4.8rem;
 }
 
@@ -8171,8 +8155,9 @@ body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .blog
     margin-top: 0;
 }
 
+.using-keyboard.single.bloglo-single-title-in-page-header .page-header .entry-meta a:focus,
 .single.bloglo-single-title-in-page-header .page-header .entry-meta a:hover {
-    color: var(--bloglo-white);
+    color: #fff;
 }
 
 .single.bloglo-single-title-in-page-header .page-header .entry-meta .entry-meta-elements>span:before {
@@ -8186,7 +8171,7 @@ body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .blog
 }
 
 .single.bloglo-single-title-in-page-header .page-header .post-category a {
-    color: var(--bloglo-white);
+    color: #fff;
     font-size: 1.5rem;
     -webkit-transition: var(--bloglo-transition-primary);
     transition: var(--bloglo-transition-primary);
@@ -8201,8 +8186,9 @@ body.bloglo-menu-animation-squarebox:not(.bloglo-is-mobile) #bloglo-topbar .blog
     color: rgba(255, 255, 255, 0.75);
 }
 
+.using-keyboard.single.bloglo-single-title-in-page-header .page-header .bloglo-breadcrumbs a:focus,
 .single.bloglo-single-title-in-page-header .page-header .bloglo-breadcrumbs a:hover {
-    color: var(--bloglo-white);
+    color: #fff;
 }
 
 .single.bloglo-single-title-in-page-header .page-header.bloglo-has-page-title .entry-meta {
@@ -8479,8 +8465,7 @@ body.author .author-box {
 }
 
 #comments .bypostauthor-badge {
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     position: absolute;
     top: -0.2rem;
     right: -1.1rem;
@@ -8865,8 +8850,7 @@ body.author .author-box {
 }
 
 .mejs-container .mejs-inner .mejs-controls .mejs-time {
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     height: 100%;
     padding: 0;
     margin: 0 2rem;
@@ -9309,15 +9293,10 @@ ul.swiper-wrapper {
 }
 
 .hamburger--spin .hamburger-inner::after {
-    -webkit-transition: bottom 0.1s 0.25s ease-in,
-        -webkit-transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-    transition: bottom 0.1s 0.25s ease-in,
-        -webkit-transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-    transition: bottom 0.1s 0.25s ease-in,
-        transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-    transition: bottom 0.1s 0.25s ease-in,
-        transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19),
-        -webkit-transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    -webkit-transition: bottom 0.1s 0.25s ease-in, -webkit-transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition: bottom 0.1s 0.25s ease-in, -webkit-transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    transition: bottom 0.1s 0.25s ease-in, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19), -webkit-transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
 
 .hamburger--spin.is-active .hamburger-inner {
@@ -9342,15 +9321,10 @@ ul.swiper-wrapper {
     -webkit-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
-    -webkit-transition: bottom 0.1s ease-out,
-        -webkit-transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition: bottom 0.1s ease-out,
-        -webkit-transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition: bottom 0.1s ease-out,
-        transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition: bottom 0.1s ease-out,
-        transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1),
-        -webkit-transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transition: bottom 0.1s ease-out, -webkit-transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: bottom 0.1s ease-out, -webkit-transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 /*****************************************/
@@ -9457,15 +9431,10 @@ button.bloglo-hamburger {
     -webkit-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
-    -webkit-transition: bottom 0.1s ease-out,
-        -webkit-transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition: bottom 0.1s ease-out,
-        -webkit-transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition: bottom 0.1s ease-out,
-        transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
-    transition: bottom 0.1s ease-out,
-        transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1),
-        -webkit-transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+    -webkit-transition: bottom 0.1s ease-out, -webkit-transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: bottom 0.1s ease-out, -webkit-transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: bottom 0.1s ease-out, transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1), -webkit-transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .is-mobile-menu-active #page:after {
@@ -10436,8 +10405,7 @@ button.bloglo-hamburger {
         padding-right: 1rem;
     }
 
-    .bloglo-header-widgets .bloglo-header-widget:not(.bloglo-header-widget__button,
-        .bloglo-header-widget__socials) .bloglo-icon {
+    .bloglo-header-widgets .bloglo-header-widget:not(.bloglo-header-widget__button, .bloglo-header-widget__socials) .bloglo-icon {
         font-size: 2.4rem;
     }
 
@@ -10664,8 +10632,7 @@ button.bloglo-hamburger {
     }
 
     .bloglo-sticky-header.admin-bar.bloglo-is-mobile #bloglo-header-inner,
-    .bloglo-sticky-header.admin-bar:not(.bloglo-header-layout-3,
-        .bloglo-header-layout-4) #bloglo-header-inner,
+    .bloglo-sticky-header.admin-bar:not(.bloglo-header-layout-3, .bloglo-header-layout-4) #bloglo-header-inner,
     .bloglo-sticky-header.admin-bar:not(.bloglo-is-mobile).bloglo-header-layout-4 #bloglo-header-inner .bloglo-nav-container>.bloglo-container,
     .bloglo-sticky-header.admin-bar:not(.bloglo-is-mobile).bloglo-header-layout-3 #bloglo-header-inner .bloglo-nav-container>.bloglo-container {
         top: 46px;
@@ -10943,8 +10910,7 @@ button.bloglo-hamburger {
 @media screen and (max-width: 600px) {
 
     .bloglo-sticky-header.admin-bar.bloglo-is-mobile #bloglo-header-inner,
-    .bloglo-sticky-header.admin-bar:not(.bloglo-header-layout-3,
-        .bloglo-header-layout-4) #bloglo-header-inner,
+    .bloglo-sticky-header.admin-bar:not(.bloglo-header-layout-3, .bloglo-header-layout-4) #bloglo-header-inner,
     .bloglo-sticky-header.admin-bar:not(.bloglo-is-mobile).bloglo-header-layout-4 #bloglo-header-inner .bloglo-nav-container>.bloglo-container,
     .bloglo-sticky-header.admin-bar:not(.bloglo-is-mobile).bloglo-header-layout-3 #bloglo-header-inner .bloglo-nav-container>.bloglo-container {
         top: 0;
@@ -11073,7 +11039,7 @@ code.block {
     background-color: var(--bloglo-primary_04);
 }
 
-.content-area a:not(.bloglo-btn, .wp-block-button__link, .page-numbers),
+.content-area a:not(.bloglo-btn, .wp-block-button__link, .page-numbers, [class^=cat-]),
 #secondary .hester-core-custom-list-widget .bloglo-entry a:not(.bloglo-btn),
 #secondary a:not(.bloglo-btn):hover,
 .using-keyboard #secondary a:not(.bloglo-btn):focus,
@@ -11094,9 +11060,6 @@ code.block {
 #bloglo-topbar .bloglo-nav>ul>li.menu-item-has-children:hover>a,
 #bloglo-topbar .bloglo-nav>ul>li.current-menu-item>a,
 #bloglo-topbar .bloglo-nav>ul>li.current-menu-ancestor>a,
-.bloglo-topbar-widget__text a:hover,
-.using-keyboard .bloglo-topbar-widget__text a:focus,
-.bloglo-topbar-widget__text a,
 .bloglo-social-nav>ul>li>a .bloglo-icon.bottom-icon,
 .bloglo-header-widgets a:not(.bloglo-btn):hover,
 .using-keyboard .bloglo-header-widgets a:not(.bloglo-btn):focus,
@@ -12335,11 +12298,11 @@ button.bloglo-btn i+span {
 
 /* Is Left Button
 a.bloglo-btn i, button.bloglo-btn i {
-    margin-right: .8rem;
+    margin-right: 0.8rem;
 }
 Is Right Button Icon
 a.bloglo-btn i, button.bloglo-btn i {
-    margin-left: .8rem;
+    margin-left: 0.8rem;
 }
 */
 
@@ -12566,6 +12529,7 @@ div.wpforms-container-full form.wpforms-form input[type="radio"]:checked {
 
 /* ---//--- */
 
+
 /* -------------------------------------------------------------------------- */
 
 /*  Starter Heading
@@ -12759,8 +12723,7 @@ div.wpforms-container-full form.wpforms-form input[type="radio"]:checked {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
-        opacity 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .bloglo-cursor .bloglo-cursor--follower {
@@ -12770,9 +12733,7 @@ div.wpforms-container-full form.wpforms-form input[type="radio"]:checked {
     border-radius: 100%;
     width: 2.4rem;
     height: 2.4rem;
-    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
-        opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1),
-        background-color 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), background-color 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .bloglo-cursor .bloglo-cursor--label {
@@ -12784,8 +12745,7 @@ div.wpforms-container-full form.wpforms-form input[type="radio"]:checked {
     letter-spacing: 0.08em;
     transform: scale(0);
     will-change: transform, opacity;
-    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
-        opacity 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .bloglo-cursor .bloglo-cursor--icon {
@@ -12796,8 +12756,7 @@ div.wpforms-container-full form.wpforms-form input[type="radio"]:checked {
     color: var(--bloglo-white);
     transform: scale(0);
     will-change: transform, opacity;
-    transition: transform 500ms cubic-bezier(0.165, 0.84, 0.44, 1),
-        opacity 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: transform 500ms cubic-bezier(0.165, 0.84, 0.44, 1), opacity 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
     color: rgba(255, 255, 255, 0.76);
 }
 
@@ -12925,6 +12884,7 @@ div.wpforms-container-full .wpforms-form .wpforms-field select {
 
 /*----*/
 
+
 /*****************************************/
 /* Bloglo Post ( Sections )
 /*****************************************/
@@ -12964,7 +12924,7 @@ button.btn-icon.bloglo-btn i::before {
     display: flex;
     flex-wrap: wrap;
     position: relative;
-	width: 100%;
+    width: 100%;
     min-height: 30rem;
     overflow: hidden;
     background-color: rgba(0, 0, 0, 0.18);
@@ -12975,11 +12935,11 @@ button.btn-icon.bloglo-btn i::before {
 }
 
 .bloglo-post-item.rounded {
-    border-radius: var(--bloglo-radius);    
+    border-radius: var(--bloglo-radius);
 }
 
 .style-1.bloglo-post-item.start {
-    align-items: start; 
+    align-items: start;
 }
 
 .style-1.bloglo-post-item.center {
@@ -12996,7 +12956,7 @@ button.btn-icon.bloglo-btn i::before {
 }
 
 .style-1.bloglo-post-item.end {
-    align-items: end; 
+    align-items: end;
 }
 
 .bloglo-post-content {
@@ -13057,7 +13017,7 @@ button.btn-icon.bloglo-btn i::before {
     bottom: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom,rgba(0,0,0,.5) 0%,rgba(0,0,0,.6) 59%,rgba(0,0,0,.8) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .5) 0%, rgba(0, 0, 0, .6) 59%, rgba(0, 0, 0, .8) 100%);
 }
 
 .bloglo-post-thumb .inner img,
@@ -13249,12 +13209,8 @@ button.btn-icon.bloglo-btn i::before {
     width: 50%;
     height: 100%;
     opacity: 0.6;
-    background: -webkit-linear-gradient(left,
-            rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0.3) 100%);
-    background: linear-gradient(to right,
-            rgba(255, 255, 255, 0) 0%,
-            rgba(255, 255, 255, 0.3) 100%);
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .3) 100%);
     -webkit-transform: skewX(-25deg);
     transform: skewX(-25deg);
 }
@@ -13371,7 +13327,7 @@ button.btn-icon.bloglo-btn i::before {
 }
 
 .pyml-slide-item div.entry-meta {
-    margin-top: 0.5rem;
+    margin-top: 0.4rem;
     font-size: 1.3rem;
 }
 
@@ -13480,11 +13436,11 @@ button.btn-icon.bloglo-btn i::before {
 
 @-webkit-keyframes ripperOnCircle {
     0% {
-        opacity: 0.5;
+        opacity: 0.3;
     }
 
     40% {
-        opacity: 0.7;
+        opacity: 0.5;
         box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.075), 0 0 0 8px rgba(255, 255, 255, 0.2);
     }
 
@@ -13498,11 +13454,11 @@ button.btn-icon.bloglo-btn i::before {
 
 @keyframes ripperOnCircle {
     0% {
-        opacity: 0.5;
+        opacity: 0.3;
     }
 
     40% {
-        opacity: 0.7;
+        opacity: 0.5;
         box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.075), 0 0 0 8px rgba(255, 255, 255, 0.2);
     }
 
@@ -13595,6 +13551,7 @@ button.btn-icon.bloglo-btn i::before {
         display: none;
     }
 }
+
 
 /*
 Custom Style

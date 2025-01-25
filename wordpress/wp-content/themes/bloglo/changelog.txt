@@ -1,5 +1,8 @@
+= 1.1.6 =
+* Added WeChat, QQ, Bilibili and Threads social icons.
+
 = 1.1.5 =
-* Telegram and Discord social icons added in header social menu.
+* Added Telegram and Discord social icons.
 
 = 1.1.4 =
 * Data escaping issue fixed.

@@ -1,41 +1,44 @@
-version: '3.1'
-name: personal-blog
+name: perblog
+
 services:
 
-  wordpress:
-    container_name: wordpress
+  blog:
     image: wordpress
     restart: always
+    depends_on: 
+      - db
     ports:
-      - 3010:80
+      - ${PORT_BLOG}:${PORT_BLOG_CONT}
     networks:
       - perblog-net
-    environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: perblog-admin
-      WORDPRESS_DB_PASSWORD: 1234qwerty
-      WORDPRESS_DB_NAME: perblog
     volumes:
-      - wordpress:/var/www/html
+      - perblog-blog:/var/www/html:rw
       - ./wordpress/wp-content/themes/:/var/www/html/wp-content/themes/:rw
+    environment:
+      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_USER=${DB_USER}
+      - WORDPRESS_DB_PASSWORD=${DB_PASS}
+      - WORDPRESS_DB_NAME=${DB_NAME}
 
   db:
-    container_name: db
-    image: mysql:8.0
+    image: mariadb
     restart: always
+    ports:
+      - ${PORT_DB}:${PORT_DB_CONT}
     networks:
       - perblog-net
-    environment:
-      MYSQL_DATABASE: perblog
-      MYSQL_USER: perblog-admin
-      MYSQL_PASSWORD: 1234qwerty
-      MYSQL_RANDOM_ROOT_PASSWORD: '1234qwerty'
     volumes:
-      - db:/var/lib/mysql
+      - perblog-db:/var/lib/mysql:rw
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASS}
+      - MYSQL_USER=${DB_USER}
+      - MYSQL_PASSWORD=${DB_PASS}
+      - MYSQL_DATABASE=${DB_NAME}
 
-volumes:
-  wordpress:
-  db:
-   
 networks:
   perblog-net:
+    driver: bridge
+
+volumes:
+  perblog-blog:
+  perblog-db:

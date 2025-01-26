@@ -5,10 +5,10 @@ services:
   blog:
     image: wordpress
     restart: always
-    depends_on: 
+    depends_on:
       - db
     ports:
-      - ${PORT_BLOG}:${PORT_BLOG_CONT}
+      - "${PORT_BLOG}:${PORT_BLOG_CONT}"
     networks:
       - perblog-net
     volumes:
@@ -16,24 +16,24 @@ services:
       - ./wordpress/wp-content/themes/:/var/www/html/wp-content/themes/:rw
     environment:
       - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_NAME=${DB_NAME}
       - WORDPRESS_DB_USER=${DB_USER}
       - WORDPRESS_DB_PASSWORD=${DB_PASS}
-      - WORDPRESS_DB_NAME=${DB_NAME}
 
   db:
     image: mariadb
     restart: always
     ports:
-      - ${PORT_DB}:${PORT_DB_CONT}
+      - "${PORT_DB}:${PORT_DB_CONT}"
     networks:
       - perblog-net
     volumes:
       - perblog-db:/var/lib/mysql:rw
     environment:
+      - MYSQL_DATABASE=${DB_NAME}
       - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASS}
       - MYSQL_USER=${DB_USER}
       - MYSQL_PASSWORD=${DB_PASS}
-      - MYSQL_DATABASE=${DB_NAME}
 
 networks:
   perblog-net:

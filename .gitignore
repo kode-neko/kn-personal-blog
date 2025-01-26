@@ -99,3 +99,5 @@ sftp-config.json
 ###############
 /web/google*
 /web/siteaudit-*.txt
+
+.env

@@ -13,6 +13,7 @@ services:
       - perblog-net
     volumes:
       - perblog-blog:/var/www/html:rw
+      - ./wordpress/wp-content/uploads/:/var/www/html/wp-content/uploads/:rw
       - ./wordpress/wp-content/themes/:/var/www/html/wp-content/themes/:rw
     environment:
       - WORDPRESS_DB_HOST=db
